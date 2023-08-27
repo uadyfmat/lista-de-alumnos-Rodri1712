@@ -21,6 +21,8 @@ nodo *encontrarAnterior(nodo *cabeza, nodo *nuevo);
 void insertarNodoOrdenadoCreditos(nodo **cabeza, alumno *a);
 void imprimirLista(nodo *cabeza);
 void imprimirAlumno(alumno *a);
+void imprimirDirAlumnos(nodo *cabeza);
+void imprimirDirNodos(nodo *cabeza);
 
 int main(){
 
@@ -37,6 +39,16 @@ int main(){
     insertarNodoOrdenadoCreditos(&cabeza, a3);
     insertarNodoOrdenadoCreditos(&cabeza, a4);
     insertarNodoOrdenadoCreditos(&cabeza, a5);
+
+    printf("./Lista de alumnos\n");
+
+    imprimirDirAlumnos(cabeza);
+    printf("\n");
+
+    imprimirDirNodos(cabeza);
+    printf("\n");
+
+    printf("Impresion de la lista de Alumnos (Creditos Ascendentes)\n");
 
     imprimirLista(cabeza);
 
@@ -101,7 +113,7 @@ void insertarNodoOrdenadoCreditos(nodo **cabeza, alumno *a){
 }
 
 void imprimirAlumno(alumno *a){
-    printf("-> %s, Semestre %d, %d creditos aprobados", a -> nombreCompleto, a -> n_semestre, a -> n_creditos);
+    printf("Nombre: %s, Creditos Aprobados: %d, Semestre Equivalente: %d", a -> nombreCompleto, a -> n_creditos, a -> n_semestre);
     printf("\n");
 }
 
@@ -110,5 +122,22 @@ void imprimirLista(nodo *cabeza){
 
     for(actual = cabeza; actual != NULL; actual = actual -> sig){
         imprimirAlumno(actual -> alum);
+    }
+}
+
+void imprimirDirAlumnos(nodo *cabeza){
+    nodo *actual = cabeza;
+
+    for(actual = cabeza; actual != NULL; actual = actual -> sig){
+        printf("Se ha creado una estructura alumno en la direccion %p\n", actual -> alum);
+
+    }
+}
+
+void imprimirDirNodos(nodo *cabeza){
+    nodo *actual = cabeza;
+
+    for(actual = cabeza; actual != NULL; actual = actual -> sig){
+        printf("Se ha creado una estructura nodo en la direccion %p\n", actual);
     }
 }
