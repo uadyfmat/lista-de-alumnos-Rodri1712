@@ -13,7 +13,6 @@ typedef struct elemento2{
     struct elemento2 *sig;
 }nodo;
 
-//Firmas
 alumno* crearAlumno(char *nombreCompleto, int semestre, int creditos);
 nodo* crearLista();
 nodo* crearNodo(alumno *a);
